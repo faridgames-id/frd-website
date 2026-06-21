@@ -1,15 +1,13 @@
 ﻿const fs = require('fs');
+let content = fs.readFileSync('app/page.tsx', 'utf-8');
 
-// 1. Remove Mobile Bottom Action Bar from page.tsx
-let page = fs.readFileSync('app/page.tsx', 'utf-8');
-const bottomBarRegex = /\s*\{\/\* ── MOBILE BOTTOM ACTION BAR ── \*\/\}\s*<div className="fixed bottom-0 left-0 w-full z-\[100\].*?<\/div>/s;
-page = page.replace(bottomBarRegex, '');
-fs.writeFileSync('app/page.tsx', page);
+// 1. Remove the mobile bottom action bar
+const bottomBarRegex = /\s*\{\/\*\s*──\s*MOBILE BOTTOM ACTION BAR\s*──\s*\*\/\}\s*<div className="fixed bottom-0 left-0 w-full z-50 md:hidden[^>]+>\s*<a href="#services"[^>]+>Katalog<\/a>\s*<a href="https:\/\/wa\.me\/6287814897713"[^>]+>Chat WA Admin<\/a>\s*<\/div>/g;
 
-// 2. Remove extra padding from globals.css
-let css = fs.readFileSync('app/globals.css', 'utf-8');
-css = css.replace(/padding: 24px 16px 80px !important;/g, 'padding: 24px 16px !important;');
-css = css.replace(/padding-bottom: 80px !important;/g, '');
-fs.writeFileSync('app/globals.css', css);
+content = content.replace(bottomBarRegex, "");
 
-console.log("Floating Action Bar removed.");
+// 2. Adjust footer padding from pb-32 to pb-12
+content = content.replace(/pb-32 md:pb-12/g, "pb-12");
+
+fs.writeFileSync('app/page.tsx', content);
+console.log("Removed bottom action bar and adjusted footer padding");

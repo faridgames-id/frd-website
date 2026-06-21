@@ -991,17 +991,11 @@ export default function Home() {
 </section>
 
 {/* ── FOOTER ── */}
-
-      {/* ── MOBILE BOTTOM ACTION BAR ── */}
-      <div className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#060910]/95 backdrop-blur-xl border-t border-white/10 p-4 flex gap-3 shadow-[0_-10px_40px_rgba(0,0,0,0.8)] pb-6">
-        <a href="#services" className="flex-1 btn-outline !bg-white/5 !border-white/20 !text-white text-sm font-bold flex items-center justify-center rounded-xl min-h-[48px]">Katalog</a>
-        <a href="https://wa.me/6287814897713" className="flex-1 btn-primary !bg-[#4F8EF7] !shadow-[0_0_20px_rgba(79,142,247,0.5)] text-sm font-bold flex items-center justify-center rounded-xl min-h-[48px]">Chat WA Admin</a>
-      </div>
 </main>
 
 
 <footer>
-  <div className="footer-inner flex-col md:flex-row text-center md:text-left gap-8 md:gap-0 pb-32 md:pb-12">
+  <div className="footer-inner flex-col md:flex-row text-center md:text-left gap-8 md:gap-0 pb-12">
     <a className="nav-logo justify-center md:justify-start w-full md:w-auto" href="#" style={{textDecoration: "none"}}>
       <img src="/logo.jpg" alt="Farid Shop Game" style={{ width: "30px", height: "30px", borderRadius: "8px", objectFit: "cover", flexShrink: 0, boxShadow: "0 0 16px rgba(79,142,247,0.4)" }} />
       <span style={{'fontSize': '14px', 'fontWeight': '700', 'color': 'var(--text)'}}>Farid Shop <em style={{'color': '#4F8EF7', 'fontStyle': 'normal'}}>Game</em></span>
