@@ -81,6 +81,7 @@ const Particles = () => {
 };
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const containerRef = useRef<HTMLElement>(null);
   useGSAP(() => {
     gsap.config({ force3D: true });
@@ -193,10 +194,7 @@ export default function Home() {
       window.addEventListener('scroll', () => {
         if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 40);
       }, { passive: true });
-
-            // ── Hamburger ──
-      );
-      }
+      // ── Hamburger removed ──
 
       // ── Filter buttons ──
       document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -357,7 +355,7 @@ export default function Home() {
         Terpercaya &amp; Bergaransi
       </div>
   
-      <h1 className="gsap-hero-up text-3xl md:text-5xl lg:text-6xl font-black leading-tight" style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 800, letterSpacing: '2px', lineHeight: '1.1', , textTransform: 'uppercase', textAlign: 'left' }}>
+      <h1 className="gsap-hero-up text-3xl md:text-5xl lg:text-6xl font-black leading-tight" style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 800, letterSpacing: '2px', lineHeight: '1.1', textTransform: 'uppercase', textAlign: 'left' }}>
         <span className="text-[#4F8EF7] inline-block">FARID SHOP GAME</span><br/>
         <span className="text-white inline-block mt-1">COMMUNITY STORE</span>
       </h1>
