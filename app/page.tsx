@@ -337,7 +337,7 @@ export default function Home() {
   <a href="#trust">Keamanan</a>
   <a href="#flow">Cara Kerja</a>
   <a href="#contact">Kontak</a>
-  <a href="https://wa.me/6287814897713" className="btn-primary !bg-[#4F8EF7] hover:!bg-[#3B82F6] !shadow-[0_0_15px_rgba(79,142,247,0.4)]">Chat Admin via WhatsApp</a>
+  
 </div>
 
 {/* ── HERO ── */}
