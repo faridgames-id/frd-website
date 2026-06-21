@@ -1137,3 +1137,11 @@ a[href*="spline.design"] {
   90% { opacity: 1; }
   100% { transform: translateY(-100vh) translateX(30px) rotate(180deg); opacity: 0; }
 }
+
+/* --- MOBILE NAV FIXES --- */
+@media (max-width: 860px) {
+  .nav-links, .nav-cta { display: none !important; }
+  .hamburger { display: flex !important; }
+  .nav-logo span { display: none !important; }
+  nav { padding: 0 16px !important; }
+}

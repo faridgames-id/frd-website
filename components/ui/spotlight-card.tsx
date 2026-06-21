@@ -18,7 +18,7 @@ export function SpotlightCard({
   
   const [size, setSize] = useState({ w: 0, h: 0 });
 
-  const glassSize = 160; 
+  const glassSize = typeof window !== "undefined" && window.innerWidth < 768 ? 90 : 160; 
   const zoom = 1.2;
 
   // Refs for gsap quickTo
