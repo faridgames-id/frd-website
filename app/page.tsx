@@ -990,12 +990,6 @@ export default function Home() {
 </section>
 
 {/* ── FOOTER ── */}
-
-      {/* ── MOBILE BOTTOM ACTION BAR ── */}
-      <div className="fixed bottom-0 left-0 w-full z-[100] md:hidden bg-black/80 backdrop-blur-md border-t border-white/10 p-3 flex gap-3 shadow-[0_-10px_30px_rgba(0,0,0,0.8)] pb-5">
-        <a href="#services" className="flex-1 btn-outline !bg-white/5 !border-white/20 !text-white !text-sm !py-3 flex justify-center items-center font-bold rounded-xl h-[48px]">Katalog</a>
-        <a href="https://wa.me/6287814897713" className="flex-1 btn-primary !bg-[#4F8EF7] !shadow-[0_0_15px_rgba(79,142,247,0.4)] !text-sm !py-3 flex justify-center items-center font-bold rounded-xl h-[48px]">Chat WA Admin</a>
-      </div>
 </main>
 
 <footer>

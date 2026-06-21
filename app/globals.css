@@ -1172,7 +1172,7 @@ a[href*="spline.design"] {
     flex-direction: column !important;
     text-align: center !important;
     gap: 20px !important;
-    padding: 24px 16px 80px !important; /* Extra bottom padding for floating bar */
+    padding: 24px 16px !important; /* Extra bottom padding for floating bar */
   }
   .footer-links {
     justify-content: center !important;
@@ -1182,7 +1182,7 @@ a[href*="spline.design"] {
     flex-direction: column !important;
     gap: 12px !important;
     text-align: center !important;
-    padding-bottom: 80px !important;
+    
   }
   
   /* Touch targets */
