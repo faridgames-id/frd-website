@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farid Shop Game — Pusat Akun Sultan Terpercaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #060910;
+      --surface-1: #0d1117;
+      --surface-2: #111827;
+      --surface-3: #1a2233;
+      --border:    rgba(99,139,255,0.12);
+      --border-2:  rgba(99,139,255,0.22);
+      --blue:      #4F8EF7;
+      --blue-glow: rgba(79,142,247,0.25);
+      --gold:      #F7C948;
+      --gold-glow: rgba(247,201,72,0.25);
+      --text:      #F0F4FF;
+      --text-2:    #8B9CC8;
+      --text-3:    #4D5B7C;
+      --radius-sm: 10px;
+      --radius:    16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { background: var(--bg); color: var(--text); }
+
+    
+h1, h2, h3, h4, h5, h6, .section-title, .hero-card-name, .hero-card-title, .step-name {
+  font-family: 'Bebas Neue', sans-serif !important;
+  letter-spacing: 1px;
+}
+
+body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── Global ambient ── */
+    .ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: rgba(6, 9, 16, 0.4); /* Simplified overlay for performance */
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; background: var(--surface-1); }
+    ::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 99px; }
+
+    /* ── Selection ── */
+    ::selection { background: rgba(79,142,247,0.3); color: #fff; }
+
+    /* ───────────── NAV ───────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 24px;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(6,9,16,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    nav.scrolled { background: rgba(6,9,16,0.9); }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, #4F8EF7, #8BB8FF);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 13px; color: #fff;
+      box-shadow: 0 0 16px rgba(79,142,247,0.4);
+      flex-shrink: 0;
+    }
+    .nav-logo span {
+      font-size: 14px; font-weight: 700; color: var(--text);
+      letter-spacing: -0.3px;
+    }
+    .nav-logo em { color: var(--gold); font-style: normal; }
+
+    .nav-links {
+      display: flex; gap: 2px;
+      list-style: none;
+    }
+    .nav-links a {
+      display: block; padding: 6px 14px;
+      font-size: 13.5px; font-weight: 500; color: var(--text-2);
+      text-decoration: none; border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-links a:hover { color: var(--text); background: var(--surface-2); }
+    .nav-links a.active { color: var(--text); }
+
+    .nav-cta {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .btn-ghost {
+      padding: 7px 16px;
+      font-size: 13px; font-weight: 500; color: var(--text-2);
+      background: transparent; border: 1px solid var(--border);
+      border-radius: 99px; cursor: pointer;
+      text-decoration: none;
+      transition: color var(--transition), border-color var(--transition), background var(--transition);
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--border-2); background: var(--surface-2); }
+
+    .btn-primary {
+      padding: 7px 16px;
+      font-size: 13px; font-weight: 600; color: #0a0e1a;
+      background: var(--gold);
+      border: none; border-radius: 99px; cursor: pointer;
+      text-decoration: none;
+      transition: opacity var(--transition), box-shadow var(--transition), transform var(--transition);
+      box-shadow: 0 0 0 0 var(--gold-glow);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-primary:hover::before { transform: translateX(100%); }
+    .btn-primary:hover {
+      opacity: 0.92;
+      box-shadow: 0 4px 20px var(--gold-glow), 0 0 15px rgba(247,201,72,0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-blue {
+      padding: 10px 22px;
+      font-size: 14px; font-weight: 600; color: #fff;
+      background: var(--blue);
+      border: none; border-radius: 99px; cursor: pointer;
+      text-decoration: none;
+      transition: opacity var(--transition), box-shadow var(--transition), transform var(--transition);
+      box-shadow: 0 0 0 0 var(--blue-glow);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-blue::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-blue:hover::before { transform: translateX(100%); }
+    .btn-blue:hover {
+      opacity: 0.88;
+      box-shadow: 0 4px 24px var(--blue-glow), 0 0 20px rgba(79,142,247,0.3);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      padding: 10px 22px;
+      font-size: 14px; font-weight: 500; color: var(--text);
+      background: transparent; border: 1px solid var(--border-2);
+      border-radius: 99px; cursor: pointer; text-decoration: none;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .btn-outline:hover { background: var(--surface-2); border-color: rgba(99,139,255,0.4); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .hamburger span {
+      width: 22px; height: 2px; background: var(--text-2);
+      border-radius: 2px; transition: var(--transition);
+    }
+
+    /* ───────────── HERO ───────────── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 24px 80px;
+      max-width: 1160px;
+      margin: 0 auto;
+      gap: 60px;
+    }
+    .hero-content { flex: 1 1 0; max-width: 560px; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px 4px 6px;
+      background: rgba(247,201,72,0.08);
+      border: 1px solid rgba(247,201,72,0.25);
+      border-radius: 99px;
+      font-size: 12px; font-weight: 600; color: var(--gold);
+      letter-spacing: 0.5px; margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; background: var(--gold);
+      border-radius: 99px; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, #4F8EF7 0%, #8BB8FF 50%, #F7C948 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 16px; line-height: 1.7;
+      color: var(--text-2); margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-budget {
+      display: inline-flex; flex-direction: column;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      margin-bottom: 32px;
+    }
+    .hero-budget-label { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.8px; }
+    .hero-budget-value { font-size: 22px; font-weight: 700; color: var(--gold); letter-spacing: -0.5px; margin-top: 2px; }
+    .hero-budget-sub { font-size: 12px; color: var(--text-3); margin-top: 1px; }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .hero-visual {
+      flex: 0 0 420px;
+      position: relative;
+    }
+    .hero-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(79,142,247,0.1);
+      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease;
+    }
+    .hero-card:hover { transform: translateY(-8px); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 40px rgba(79,142,247,0.2); }
+
+    .hero-card-header {
+      background: linear-gradient(135deg, #0f1829 0%, #1a2640 100%);
+      padding: 28px 28px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .hero-card-header::after {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(79,142,247,0.2) 0%, transparent 70%);
+    }
+    .hero-card-title {
+      font-size: 11px; font-weight: 600; color: var(--text-3);
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+    }
+    .hero-card-name {
+      font-size: 22px; font-weight: 700; color: var(--text);
+      letter-spacing: -0.5px; margin-bottom: 4px;
+    }
+    .hero-card-game {
+      font-size: 13px; color: var(--blue); font-weight: 500; margin-bottom: 20px;
+    }
+    .hero-card-body { padding: 20px 28px 24px; }
+
+    .card-stat-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px; margin-bottom: 16px;
+    }
+    .card-stat {
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+    .card-stat-label { font-size: 10px; color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card-stat-val { font-size: 15px; font-weight: 700; color: var(--text); margin-top: 3px; }
+    .card-stat-val.gold { color: var(--gold); }
+    .card-stat-val.blue { color: var(--blue); }
+
+    .card-price-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .card-price-label { font-size: 12px; color: var(--text-3); font-weight: 500; }
+    .card-price-val { font-size: 20px; font-weight: 800; color: var(--gold); letter-spacing: -0.5px; }
+
+    .hero-card-footer {
+      padding: 0 28px 24px;
+      display: flex; gap: 10px;
+    }
+    .hero-badge-tag {
+      padding: 5px 11px;
+      background: rgba(79,142,247,0.1);
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: 99px;
+      font-size: 11px; font-weight: 600; color: var(--blue);
+    }
+    .hero-badge-tag.green {
+      background: rgba(52,211,153,0.1);
+      border-color: rgba(52,211,153,0.2);
+      color: #34D399;
+    }
+
+    .hero-float-1 {
+      position: absolute; top: -18px; right: -18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      animation: float1 4s ease-in-out infinite;
+    }
+    .hero-float-2 {
+      position: absolute; bottom: 40px; left: -30px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      animation: float2 5s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes float2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+    .float-label { font-size: 10px; color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .float-val { font-size: 16px; font-weight: 700; color: var(--text); }
+    .float-val .green { color: #34D399; }
+    .float-val .gold { color: var(--gold); }
+
+    /* ───────────── STATS BAR ───────────── */
+    .stats-bar {
+      position: relative; z-index: 1;
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .stats-inner {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 36px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      padding: 0 28px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:first-child { padding-left: 0; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 30px; font-weight: 800; color: var(--text);
+      letter-spacing: -1px; line-height: 1;
+    }
+    .stat-num .accent { color: var(--gold); }
+    .stat-label { font-size: 13px; color: var(--text-3); margin-top: 6px; font-weight: 500; }
+
+    /* ───────────── SECTION WRAPPER ───────────── */
+    .section {
+      position: relative; z-index: 1;
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+    .section-header {
+      margin-bottom: 48px;
+    }
+    .eyebrow {
+      font-size: 11px; font-weight: 700; color: var(--blue);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800; color: var(--text);
+      letter-spacing: -1px; line-height: 1.15;
+      max-width: 540px;
+    }
+    .section-desc {
+      font-size: 15px; color: var(--text-2);
+      line-height: 1.7; max-width: 460px;
+      margin-top: 12px;
+    }
+
+    /* ───────────── CATALOG SECTION ───────────── */
+    .catalog-filter {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px;
+    }
+    .filter-btn {
+      padding: 7px 16px;
+      font-size: 13px; font-weight: 500;
+      border-radius: 99px; cursor: pointer;
+      transition: all var(--transition);
+      border: 1px solid var(--border);
+      background: transparent; color: var(--text-2);
+    }
+    .filter-btn:hover { color: var(--text); border-color: var(--border-2); background: var(--surface-2); }
+    .filter-btn.active {
+      color: var(--blue);
+      border-color: rgba(79,142,247,0.35);
+      background: rgba(79,142,247,0.1);
+    }
+
+    .catalog-hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-bottom: 16px;
+    }
+    .catalog-hero-card {
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: relative; overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      min-height: 200px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .catalog-hero-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4), 0 0 30px rgba(79,142,247,0.1); }
+    .catalog-hero-card.ff {
+      background: linear-gradient(135deg, #1a2a4a 0%, #0d1829 100%);
+    }
+    .catalog-hero-card.ml {
+      background: linear-gradient(135deg, #1a1040 0%, #0d0920 100%);
+    }
+    .catalog-hero-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+    }
+    .catalog-hero-card .card-emoji {
+      position: absolute; top: 22px; right: 22px;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .catalog-hero-card h3 {
+      position: relative; z-index: 1;
+      font-size: 20px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.4px;
+    }
+    .catalog-hero-card p {
+      position: relative; z-index: 1;
+      font-size: 13px; color: rgba(179,195,232,0.8);
+      margin-top: 4px;
+    }
+
+    .catalog-list {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .catalog-list-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex; align-items: center; gap: 14px;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow 0.3s ease;
+    }
+    .catalog-list-card:hover {
+      background: var(--surface-3);
+      border-color: var(--border-2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px -5px rgba(0,0,0,0.2), 0 0 20px rgba(79,142,247,0.1);
+    }
+    .catalog-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .icon-ff   { background: linear-gradient(135deg, #F97316, #EF4444); }
+    .icon-ml   { background: linear-gradient(135deg, #4F8EF7, #6366F1); }
+    .icon-rbx  { background: linear-gradient(135deg, #0EA5E9, #06B6D4); }
+    .icon-pubg { background: linear-gradient(135deg, #FBBF24, #F59E0B); color: #0a0e1a; }
+    .icon-val  { background: linear-gradient(135deg, #EF4444, #B91C1C); }
+    .icon-gi   { background: linear-gradient(135deg, #8B5CF6, #6D28D9); }
+
+    .catalog-item-info {}
+    .catalog-item-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .catalog-item-sub  { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+    .catalog-cta-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 24px; flex-wrap: wrap; gap: 12px;
+    }
+
+    /* ───────────── FEATURES ───────────── */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .feature-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      position: relative; overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .feature-card:hover {
+      border-color: var(--border-2);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4), 0 0 30px -5px rgba(79,142,247,0.15);
+    }
+    .feature-card.accent-blue {
+      background: linear-gradient(140deg, #0d1e3a 0%, #0d1117 100%);
+      border-color: rgba(79,142,247,0.25);
+    }
+    .feature-card.accent-gold {
+      background: linear-gradient(140deg, #1f1605 0%, #0d1117 100%);
+      border-color: rgba(247,201,72,0.2);
+    }
+    .feature-card.accent-sky {
+      background: linear-gradient(140deg, #051827 0%, #0d1117 100%);
+      border-color: rgba(14,165,233,0.2);
+    }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 20px;
+    }
+    .fi-blue  { background: rgba(79,142,247,0.15); border: 1px solid rgba(79,142,247,0.25); }
+    .fi-gold  { background: rgba(247,201,72,0.15); border: 1px solid rgba(247,201,72,0.25); }
+    .fi-sky   { background: rgba(14,165,233,0.15); border: 1px solid rgba(14,165,233,0.25); }
+    .feature-card h3 { font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -0.4px; margin-bottom: 10px; }
+    .feature-card p  { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+
+    .feature-card-visual {
+      margin-top: 24px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .bar-track {
+      height: 6px; background: rgba(255,255,255,0.07);
+      border-radius: 99px; margin-bottom: 8px;
+    }
+    .bar-fill-gold {
+      height: 100%; background: linear-gradient(90deg, var(--gold), #FBBF24);
+      border-radius: 99px; width: 85%;
+    }
+    .bar-fill-blue {
+      height: 100%; background: linear-gradient(90deg, var(--blue), #8BB8FF);
+      border-radius: 99px; width: 92%;
+    }
+    .bar-fill-sky {
+      height: 100%; background: linear-gradient(90deg, #0EA5E9, #38BDF8);
+      border-radius: 99px; width: 78%;
+    }
+    .bar-label { font-size: 11px; color: var(--text-3); font-weight: 500; }
+
+    /* ───────────── SERVICES ───────────── */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .service-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color var(--transition), transform var(--transition), box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .service-card:hover { border-color: var(--border-2); transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3), 0 0 25px -8px rgba(79,142,247,0.2); }
+    .service-card-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .service-tag {
+      padding: 4px 10px;
+      font-size: 11px; font-weight: 700;
+      border-radius: 99px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .st-blue   { background: rgba(79,142,247,0.15); color: var(--blue); }
+    .st-gold   { background: rgba(247,201,72,0.15); color: var(--gold); }
+    .st-green  { background: rgba(52,211,153,0.12); color: #34D399; }
+    .st-purple { background: rgba(139,92,246,0.12); color: #A78BFA; }
+
+    .service-arrow {
+      width: 32px; height: 32px;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .service-card:hover .service-arrow { background: var(--blue); border-color: var(--blue); }
+    .service-arrow svg { width: 14px; height: 14px; color: var(--text-2); transition: color var(--transition); }
+    .service-card:hover .service-arrow svg { color: #fff; }
+
+    .service-card h3 { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; margin-bottom: 6px; }
+    .service-card p  { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+    /* ───────────── TRUST SECTION ───────────── */
+    .trust-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .trust-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+    }
+    .trust-icon {
+      width: 52px; height: 52px;
+      border-radius: 15px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin: 0 auto 16px;
+    }
+    .trust-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .trust-card p  { font-size: 13px; color: var(--text-3); line-height: 1.55; }
+
+    /* ───────────── MARQUEE ───────────── */
+    .marquee-section { overflow: hidden; margin-bottom: 80px; }
+    .marquee-track {
+      display: flex; width: max-content;
+      animation: marquee 28s linear infinite;
+      gap: 12px;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color var(--transition);
+    }
+    .marquee-item:hover { border-color: var(--border-2); }
+    .marquee-icon {
+      width: 24px; height: 24px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .marquee-label { font-size: 13px; font-weight: 500; color: var(--text-2); }
+
+    /* ───────────── TRANSACTION FLOW ───────────── */
+    .flow-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+    .flow-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .flow-left {
+      padding: 48px;
+      background: linear-gradient(135deg, #0d1e3a 0%, #0d1117 100%);
+      border-right: 1px solid var(--border);
+    }
+    .flow-left h2 { font-size: 28px; font-weight: 800; color: var(--text); letter-spacing: -0.8px; margin-bottom: 12px; }
+    .flow-left p  { font-size: 15px; color: var(--text-2); line-height: 1.7; margin-bottom: 32px; }
+    .flow-actions { display: flex; gap: 12px; }
+    .flow-right { padding: 36px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+    .flow-step {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: border-color var(--transition);
+    }
+    .flow-step:hover { border-color: var(--border-2); }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; flex-shrink: 0;
+    }
+    .sn-1 { background: rgba(247,201,72,0.15); color: var(--gold); }
+    .sn-2 { background: rgba(79,142,247,0.15); color: var(--blue); }
+    .sn-3 { background: rgba(52,211,153,0.12); color: #34D399; }
+    .sn-4 { background: rgba(249,115,22,0.12); color: #F97316; }
+    .step-info {}
+    .step-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .step-desc { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+    /* ───────────── NEWSLETTER / CTA ───────────── */
+    .cta-card {
+      background: linear-gradient(135deg, #0d1e3a 0%, #0a1020 100%);
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
+      content: '';
+      position: absolute; top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 300px;
+      background: radial-gradient(ellipse, rgba(79,142,247,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-card h2 { font-size: 34px; font-weight: 800; color: var(--text); letter-spacing: -1px; margin-bottom: 12px; position: relative; }
+    .cta-card p  { font-size: 15px; color: var(--text-2); max-width: 400px; margin: 0 auto 32px; position: relative; }
+    .cta-form {
+      display: flex; max-width: 420px; margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-2);
+      border-radius: 99px; overflow: hidden; padding: 4px;
+      position: relative;
+    }
+    .cta-form input {
+      flex: 1; padding: 10px 18px;
+      background: transparent; border: none; outline: none;
+      font-size: 14px; color: var(--text);
+      font-family: inherit;
+    }
+    .cta-form input::placeholder { color: var(--text-3); }
+    .cta-form button {
+      padding: 9px 22px;
+      background: var(--gold); color: #0a0e1a;
+      border: none; border-radius: 99px;
+      font-size: 13px; font-weight: 700;
+      cursor: pointer;
+      transition: opacity var(--transition);
+    }
+    .cta-form button:hover { opacity: 0.88; }
+
+    /* ───────────── FOOTER ───────────── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-links {
+      display: flex; gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 13px; color: var(--text-3);
+      text-decoration: none; font-weight: 500;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-social { display: flex; gap: 10px; }
+    .social-btn {
+      width: 34px; height: 34px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .social-btn:hover { background: var(--surface-3); border-color: var(--border-2); transform: translateY(-2px); }
+    .social-btn svg { width: 15px; height: 15px; fill: var(--text-3); }
+    .footer-copy { font-size: 12px; color: var(--text-3); }
+
+    /* ───────────── WA FLOAT ───────────── */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px;
+      width: 52px; height: 52px; z-index: 200;
+      background: #25D366;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .wa-float:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 32px rgba(37,211,102,0.5);
+    }
+    .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+
+    .mobile-menu {
+      position: fixed; top: 60px; left: 0; right: 0;
+      background: rgba(6,9,16,0.98);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px;
+      z-index: 99;
+      display: none;
+      flex-direction: column; gap: 4px;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); }
+    .mobile-menu a {
+      padding: 12px 14px;
+      font-size: 15px; font-weight: 500; color: var(--text-2);
+      text-decoration: none; border-radius: var(--radius-sm);
+      transition: background var(--transition), color var(--transition);
+    }
+    .mobile-menu a:hover { background: var(--surface-2); color: var(--text); }
+    .mobile-menu .btn-primary { margin-top: 8px; text-align: center; display: block; }
+
+    /* ───────────── RESPONSIVE ───────────── */
+    @media (max-width: 1024px) {
+      .hero-visual { flex: 0 0 360px; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .hero { flex-direction: column; padding: 100px 24px 60px; text-align: center; }
+      .hero-content { max-width: 100%; align-items: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-budget { align-items: center; }
+      .hero-visual { flex: none; width: 100%; max-width: 440px; }
+      .hero-float-1, .hero-float-2 { display: none; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .stat-item { border-right: none; padding: 0; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+      .stat-item:nth-child(3), .stat-item:last-child { border-bottom: none; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .flow-grid { grid-template-columns: 1fr; }
+      .flow-left { padding: 32px; }
+      .flow-right { padding: 28px; }
+      .catalog-list { grid-template-columns: 1fr 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 90px 16px 48px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; padding: 20px; }
+      .section { padding: 0 16px 72px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .catalog-hero-grid { grid-template-columns: 1fr; }
+      .catalog-list { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .cta-card { padding: 36px 24px; }
+      .cta-form { flex-direction: column; border-radius: 16px; }
+      .cta-form input { padding: 12px 16px; }
+      .cta-form button { border-radius: 12px; padding: 12px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 14px; }
+    }
+
+    /* ───────────── DIVIDER ───────────── */
+    .divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 0;
+    }
+    /* ───────────── BORDER GLOW EFFECT ───────────── */
+    .glow-card {
+      --edge-proximity: 0;
+      --cursor-angle: 45deg;
+      --edge-sensitivity: 30;
+      --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+      position: relative;
+      isolation: isolate;
+      transform: translate3d(0, 0, 0.01px);
+    }
+
+    .glow-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      transition: opacity 0.25s ease-out;
+      z-index: -1;
+      background: linear-gradient(135deg, rgba(79,142,247,0.3) 0%, rgba(247,201,72,0.2) 100%);
+      opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+      mask-image: conic-gradient(
+        from var(--cursor-angle) at center,
+        black 25%, transparent 40%, transparent 60%, black 75%
+      );
+      pointer-events: none;
+    }
+
+    .glow-card:not(:hover)::before {
+      opacity: 0;
+      transition: opacity 0.75s ease-in-out;
+    }
+
+    .glow-card > .glow-border {
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      background: conic-gradient(
+        from var(--cursor-angle) at center,
+        rgba(79,142,247,0.4), rgba(247,201,72,0.4), rgba(79,142,247,0.4)
+      );
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #fff calc(100% - 1px));
+      opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .glow-card:not(:hover) > .glow-border {
+      opacity: 0;
+      transition: opacity 0.75s ease-in-out;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Ambient background -->
+<div class="ambient" aria-hidden="true"></div>
+
+<!-- ── GIANT ROBOT 3D BACKGROUND (SLIDE 1 ONLY) ── -->
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0; pointer-events: none; overflow: hidden;">
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.3/build/spline-viewer.js"></script>
+  <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" events-target="global" style="width: 100%; height: 100%; display: block;"></spline-viewer>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark">F</div>
+    <span>Farid Shop <em>Game</em></span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#catalog" class="active">Katalog</a></li>
+    <li><a href="#services">Layanan</a></li>
+    <li><a href="#trust">Keamanan</a></li>
+    <li><a href="#flow">Cara Kerja</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+
+  <div class="nav-cta">
+    <a href="#catalog" class="btn-ghost">Lihat Katalog</a>
+    <a href="https://wa.me/6287814897713" class="btn-primary">Chat Admin</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#catalog">Katalog</a>
+  <a href="#services">Layanan</a>
+  <a href="#trust">Keamanan</a>
+  <a href="#flow">Cara Kerja</a>
+  <a href="#contact">Kontak</a>
+  <a href="https://wa.me/6287814897713" class="btn-primary">Chat Admin via WhatsApp</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Terpercaya &amp; Bergaransi
+    </div>
+
+    <h1 style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; line-height: 1; font-size: clamp(40px, 5vw, 68px); text-transform: uppercase;">
+      FARID SHOP GAME<br>
+      <span style="background: linear-gradient(90deg, #F97316 0%, #EA580C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">COMMUNITY STORE</span>
+    </h1>
+
+    <p class="hero-sub">
+      Pusat jual beli akun game terpercaya. Free Fire, Mobile Legends, Roblox, dan lainnya — spek sultan, harga jujur, garansi anti hackback.
+    </p>
+
+    <div class="hero-budget">
+      <span class="hero-budget-label">Budget Tampung</span>
+      <span class="hero-budget-value">Rp 100rb — 10jt</span>
+      <span class="hero-budget-sub">Kami menampung akun di semua range harga</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/6287814897713" class="btn-blue">Hubungi Admin via WA</a>
+      <a href="https://faridshopgame.vercel.app" class="btn-outline">Gabung Komunitas</a>
+    </div>
+  </div>
+
+
+</section>
+
+
+
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">500<span class="accent">+</span></div>
+      <div class="stat-label">Transaksi Sukses</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50<span class="accent">+</span></div>
+      <div class="stat-label">Akun Stok Ready</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100<span class="accent">%</span></div>
+      <div class="stat-label">Anti Hackback</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24<span class="accent">/7</span></div>
+      <div class="stat-label">Admin Aktif</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <!-- will be duplicated by JS -->
+    <div class="marquee-item"><div class="marquee-icon icon-ff">FF</div><span class="marquee-label">Free Fire</span></div>
+    <div class="marquee-item"><div class="marquee-icon icon-ml">ML</div><span class="marquee-label">Mobile Legends</span></div>
+    <div class="marquee-item"><div class="marquee-icon icon-rbx">RBX</div><span class="marquee-label">Roblox</span></div>
+    <div class="marquee-item"><div class="marquee-icon icon-pubg">PUBG</div><span class="marquee-label">PUBG Mobile</span></div>
+    <div class="marquee-item"><div class="marquee-icon icon-val">VAL</div><span class="marquee-label">Valorant</span></div>
+    <div class="marquee-item"><div class="marquee-icon icon-gi">GI</div><span class="marquee-label">Genshin Impact</span></div>
+    <div class="marquee-item"><div class="marquee-icon" style="background:linear-gradient(135deg,#22c55e,#16a34a);">✓</div><span class="marquee-label">Amanah 100%</span></div>
+    <div class="marquee-item"><div class="marquee-icon" style="background:linear-gradient(135deg,#4F8EF7,#6366F1);">🛡</div><span class="marquee-label">Anti Hackback</span></div>
+    <div class="marquee-item"><div class="marquee-icon" style="background:linear-gradient(135deg,#F97316,#EF4444);">🤝</div><span class="marquee-label">Rekber Ready</span></div>
+    <div class="marquee-item"><div class="marquee-icon" style="background:linear-gradient(135deg,#F7C948,#F59E0B);color:#0a0e1a;">⚡</div><span class="marquee-label">Respon Cepat</span></div>
+    <div class="marquee-item"><div class="marquee-icon" style="background:linear-gradient(135deg,#0EA5E9,#0284C7);">💰</div><span class="marquee-label">Harga Jujur</span></div>
+    <div class="marquee-item"><div class="marquee-icon" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9);">⭐</div><span class="marquee-label">Joki Rank</span></div>
+  </div>
+</div>
+
+<!-- ── CATALOG ── -->
+<section class="section" id="catalog">
+  <div class="section-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+    <div>
+      <div class="eyebrow">Katalog</div>
+      <h2 class="section-title">Temukan Akun<br>Sultan Impianmu</h2>
+      <p class="section-desc">Berbagai spek sultan siap jual dengan harga transparan dan spesifikasi lengkap.</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--border);border-radius:99px;padding:8px 16px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Cari akun…" style="background:none;border:none;outline:none;font-size:13px;color:var(--text);font-family:inherit;width:120px;" />
+      </div>
+    </div>
+  </div>
+
+  <div class="catalog-filter">
+    <button class="filter-btn active">Semua Game</button>
+    <button class="filter-btn">Free Fire</button>
+    <button class="filter-btn">Mobile Legends</button>
+    <button class="filter-btn">Roblox</button>
+    <button class="filter-btn">PUBG Mobile</button>
+    <button class="filter-btn">Valorant</button>
+  </div>
+
+  <div class="catalog-hero-grid">
+    <div class="catalog-hero-card ff">
+      <div class="card-emoji">🔫</div>
+      <h3>Free Fire Sultan</h3>
+      <p>OPM, Lumut, Rapper, S1/S2 Old — spek langka, harga transparan.</p>
+    </div>
+    <div class="catalog-hero-card ml">
+      <div class="card-emoji">⚔️</div>
+      <h3>MLBB Mythic Glory</h3>
+      <p>Akun Terhormat, Collab banyak, WR tinggi, skin Legend &amp; KOF.</p>
+    </div>
+  </div>
+
+  <div class="catalog-list">
+    <div class="catalog-list-card">
+      <div class="catalog-icon icon-ff">FF</div>
+      <div class="catalog-item-info">
+        <div class="catalog-item-name">Akun S1 Old</div>
+        <div class="catalog-item-sub">Set Old Lengkap · OPM</div>
+      </div>
+    </div>
+    <div class="catalog-list-card">
+      <div class="catalog-icon icon-ml">ML</div>
+      <div class="catalog-item-info">
+        <div class="catalog-item-name">Akun Sultan</div>
+        <div class="catalog-item-sub">Skin Legend &amp; KOF</div>
+      </div>
+    </div>
+    <div class="catalog-list-card">
+      <div class="catalog-icon icon-rbx">RBX</div>
+      <div class="catalog-item-info">
+        <div class="catalog-item-name">Roblox Blox Fruits</div>
+        <div class="catalog-item-sub">Level Max &amp; Gamepass</div>
+      </div>
+    </div>
+    <div class="catalog-list-card">
+      <div class="catalog-icon icon-pubg">PUBG</div>
+      <div class="catalog-item-info">
+        <div class="catalog-item-name">PUBG Mobile</div>
+        <div class="catalog-item-sub">Conqueror &amp; Full Skin</div>
+      </div>
+    </div>
+    <div class="catalog-list-card">
+      <div class="catalog-icon icon-val">VAL</div>
+      <div class="catalog-item-info">
+        <div class="catalog-item-name">Valorant</div>
+        <div class="catalog-item-sub">Immortal · Knife Skins</div>
+      </div>
+    </div>
+    <div class="catalog-list-card">
+      <div class="catalog-icon icon-gi">GI</div>
+      <div class="catalog-item-info">
+        <div class="catalog-item-name">Genshin Impact</div>
+        <div class="catalog-item-sub">AR 60 · Karakter Langka</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="catalog-cta-row">
+    <a href="https://faridshopgame.vercel.app" class="btn-primary" style="font-size:14px;padding:10px 24px;">Lihat Katalog Lengkap →</a>
+    <a href="https://wa.me/6287814897713" class="btn-outline" style="font-size:14px;padding:10px 24px;">Tawarkan Akunmu</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── FEATURES ── -->
+<section class="section" id="features" style="padding-top:80px;">
+  <div class="section-header">
+    <div class="eyebrow">Spesialisasi</div>
+    <h2 class="section-title">Tiga Pilar Utama<br>Farid Shop Game</h2>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card accent-blue">
+      <div class="feature-icon fi-blue">🔫</div>
+      <h3>Free Fire (FF)</h3>
+      <p>Spesialis menampung dan menjual spek sultan: OPM, Lumut, Rapper, S1, S2, Poker, Cluber, FJOK, dan banyak lagi.</p>
+      <div class="feature-card-visual">
+        <div class="bar-label" style="margin-bottom:6px;">Stok Tersedia</div>
+        <div class="bar-track"><div class="bar-fill-blue"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;">
+          <span style="font-size:11px;color:var(--text-3);">92% Ready</span>
+          <span style="font-size:11px;color:var(--blue);font-weight:600;">Banyak</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card accent-gold">
+      <div class="feature-icon fi-gold">⚔️</div>
+      <h3>Mobile Legends</h3>
+      <p>Tersedia akun Ternama, Terhormat, Juragan, Sultan, Collab banyak, Legend, hingga akun rare terbatas.</p>
+      <div class="feature-card-visual">
+        <div class="bar-label" style="margin-bottom:6px;">Pilihan Rank</div>
+        <div class="bar-track"><div class="bar-fill-gold"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;">
+          <span style="font-size:11px;color:var(--text-3);">85% Mythic+</span>
+          <span style="font-size:11px;color:var(--gold);font-weight:600;">Premium</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card accent-sky">
+      <div class="feature-icon fi-sky">💰</div>
+      <h3>Budget Tampung</h3>
+      <p>Kami menerima titip dan jual akun game Anda. Budget tampung mulai Rp 100.000 hingga Rp 10.000.000.</p>
+      <div class="feature-card-visual">
+        <div class="bar-label" style="margin-bottom:6px;">Range Harga</div>
+        <div class="bar-track"><div class="bar-fill-sky"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;">
+          <span style="font-size:11px;color:var(--text-3);">Rp 100rb – 10jt</span>
+          <span style="font-size:11px;color:#0EA5E9;font-weight:600;">Fleksibel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRANSACTION FLOW ── -->
+<section class="section" id="flow">
+  <div class="section-header">
+    <div class="eyebrow">Cara Kerja</div>
+    <h2 class="section-title">Transaksi Aman,<br>Terstruktur &amp; Bergaransi</h2>
+  </div>
+
+  <div class="flow-card">
+    <div class="flow-grid">
+      <div class="flow-left">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.2);border-radius:8px;padding:8px 14px;margin-bottom:20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4F8EF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span style="font-size:12px;font-weight:600;color:var(--blue);">100% Anti Hackback</span>
+        </div>
+        <h2>Alur Transaksi<br>Jelas &amp; Terjamin</h2>
+        <p>Setiap transaksi kami jalani dengan prosedur ketat — dari verifikasi akun, pembayaran aman, hingga serah terima &amp; garansi purna jual.</p>
+        <div class="flow-actions">
+          <a href="https://wa.me/6287814897713" class="btn-blue">Proses Sekarang</a>
+          <button class="btn-outline">Pelajari Alur</button>
+        </div>
+      </div>
+      <div class="flow-right">
+        <div class="flow-step">
+          <div class="step-num sn-1">01</div>
+          <div class="step-info">
+            <div class="step-name">Hubungi Admin</div>
+            <div class="step-desc">Chat WA, kirim spek &amp; screenshoot akun</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="step-num sn-2">02</div>
+          <div class="step-info">
+            <div class="step-name">Negosiasi Harga</div>
+            <div class="step-desc">Admin cek &amp; berikan penawaran harga terbaik</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="step-num sn-3">03</div>
+          <div class="step-info">
+            <div class="step-name">Transaksi via Rekber</div>
+            <div class="step-desc">Pembayaran aman melalui rekening bersama</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="step-num sn-4">04</div>
+          <div class="step-info">
+            <div class="step-name">Garansi Aktif</div>
+            <div class="step-desc">Garansi anti hackback setelah serah terima</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="section" id="services">
+  <div class="section-header">
+    <div class="eyebrow">Layanan</div>
+    <h2 class="section-title">Lebih dari Sekedar<br>Jual Beli Akun</h2>
+    <p class="section-desc">Kami hadir lengkap — top-up, joki, rekber, hingga komunitas gamer aktif.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-card-top">
+        <span class="service-tag st-gold">Top-Up</span>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <h3>Top-Up Game Murah &amp; Legal</h3>
+      <p>Diamond, UC, Robux, dan mata uang game lainnya via ID resmi — proses dalam menit, 100% legal &amp; aman.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-top">
+        <span class="service-tag st-purple">Joki Rank</span>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <h3>Jasa Joki Rank Cepat</h3>
+      <p>Push rank FF, ML, PUBG oleh player berpengalaman. Target rank tercapai, garansi tidak drop.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-top">
+        <span class="service-tag st-blue">Rekber</span>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <h3>Jasa Rekening Bersama</h3>
+      <p>Farid Shop Game siap menjadi perantara transaksi jual beli akun sesama gamer — aman dan terpercaya.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-top">
+        <span class="service-tag st-green">Reseller</span>
+        <div class="service-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+      <h3>Program Reseller Resmi</h3>
+      <p>Ingin penghasilan tambahan? Gabung jadi reseller akun game bersama Farid Shop Game dan mulai cuan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST ── -->
+<section class="section" id="trust">
+  <div class="section-header" style="text-align:center;">
+    <div class="eyebrow" style="text-align:center;">Mengapa Kami</div>
+    <h2 class="section-title" style="max-width:100%;text-align:center;">Keamanan &amp; Kepercayaan<br>adalah Prioritas Utama</h2>
+  </div>
+
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.2);">🛡️</div>
+      <h4>Anti Hackback</h4>
+      <p>Setiap akun yang terjual dilindungi dengan garansi anti hackback dari admin.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon" style="background:rgba(79,142,247,0.12);border:1px solid rgba(79,142,247,0.2);">✅</div>
+      <h4>Spek Valid &amp; Jelas</h4>
+      <p>Seluruh informasi akun ditampilkan jujur — skin, rank, season, dan harga tanpa tipu muslihat.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon" style="background:rgba(247,201,72,0.12);border:1px solid rgba(247,201,72,0.2);">⚡</div>
+      <h4>Respon 24/7</h4>
+      <p>Admin aktif sepanjang hari, responsif, ramah, dan siap membantu segala kebutuhan transaksimu.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon" style="background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.2);">💎</div>
+      <h4>Harga Terjangkau</h4>
+      <p>Harga kompetitif dan wajar. Kami tidak markup berlebihan, buyer dan seller sama-sama untung.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA / NEWSLETTER ── -->
+<section class="section" id="contact">
+  <div class="cta-card">
+    <h2>Selalu Update Stok Akun Sultan</h2>
+    <p>Daftarkan nomor WhatsApp-mu dan dapatkan notifikasi stok terbaru, promo top-up, dan diskon spesial.</p>
+    <div class="cta-form">
+      <input type="text" placeholder="Nomor WhatsApp (contoh: 0812xxx)" />
+      <button>Kirim</button>
+    </div>
+    <div style="margin-top:20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <a href="https://wa.me/6287814897713" class="btn-blue" style="font-size:13px;padding:9px 22px;">Chat Langsung Admin</a>
+      <a href="https://faridshopgame.vercel.app" class="btn-outline" style="font-size:13px;padding:9px 22px;">Gabung Grup Komunitas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <a class="nav-logo" href="#" style="text-decoration:none;">
+      <div class="nav-logo-mark">F</div>
+      <span style="font-size:14px;font-weight:700;color:var(--text);">Farid Shop <em style="color:var(--gold);font-style:normal;">Game</em></span>
+    </a>
+
+    <ul class="footer-links">
+      <li><a href="#">Syarat &amp; Ketentuan</a></li>
+      <li><a href="#">Kebijakan Privasi</a></li>
+      <li><a href="#">Garansi Akun</a></li>
+      <li><a href="https://wa.me/6287814897713">Hubungi Kami</a></li>
+    </ul>
+
+    <div class="footer-social">
+      <!-- X / Twitter -->
+      <a href="#" class="social-btn" aria-label="Twitter">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <!-- Discord -->
+      <a href="#" class="social-btn" aria-label="Discord">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+      </a>
+      <!-- YouTube -->
+      <a href="#" class="social-btn" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+
+    <p class="footer-copy">© 2025 Farid Shop Game. Hak cipta dilindungi.</p>
+  </div>
+</footer>
+
+<!-- WA Float -->
+<a href="https://wa.me/6287814897713" class="wa-float" aria-label="Chat via WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // ── Nav scroll effect ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Hamburger ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ── Duplicate marquee ──
+  const track = document.getElementById('marqueeTrack');
+  const clone = track.innerHTML;
+  track.innerHTML += clone;
+
+  // ── Filter buttons ──
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // ── Intersection Observer fade-in ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature-card, .service-card, .trust-card, .flow-step, .catalog-list-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // ── Smooth active nav ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => io.observe(s));
+
+  // ── BorderGlow Effect ──
+  function initBorderGlow(element) {
+    if (!element) return;
+
+    // Create glow border element
+    if (!element.querySelector('.glow-border')) {
+      const glowBorder = document.createElement('div');
+      glowBorder.className = 'glow-border';
+      element.appendChild(glowBorder);
+    }
+
+    function getCenterOfElement(el) {
+      const rect = el.getBoundingClientRect();
+      return [rect.width / 2, rect.height / 2];
+    }
+
+    function getEdgeProximity(el, x, y) {
+      const rect = el.getBoundingClientRect();
+      const [cx, cy] = [rect.width / 2, rect.height / 2];
+      const dx = x - cx;
+      const dy = y - cy;
+      let kx = Infinity;
+      let ky = Infinity;
+      if (dx !== 0) kx = cx / Math.abs(dx);
+      if (dy !== 0) ky = cy / Math.abs(dy);
+      return Math.min(Math.max(1 / Math.min(kx, ky), 0), 1);
+    }
+
+    function getCursorAngle(el, x, y) {
+      const rect = el.getBoundingClientRect();
+      const [cx, cy] = [rect.width / 2, rect.height / 2];
+      const dx = x - cx;
+      const dy = y - cy;
+      if (dx === 0 && dy === 0) return 0;
+      const radians = Math.atan2(dy, dx);
+      let degrees = radians * (180 / Math.PI) + 90;
+      if (degrees < 0) degrees += 360;
+      return degrees;
+    }
+
+    let ticking = false;
+    element.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = element.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const edge = getEdgeProximity(element, x, y);
+          const angle = getCursorAngle(element, x, y);
+          element.style.setProperty('--edge-proximity', `${(edge * 100).toFixed(1)}`);
+          element.style.setProperty('--cursor-angle', `${angle.toFixed(1)}deg`);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    element.addEventListener('mouseleave', () => {
+      element.style.setProperty('--edge-proximity', '0');
+    });
+  }
+
+  // Apply glow effect to specific cards
+  const glowElements = document.querySelectorAll(
+    '.hero-card, .feature-card, .service-card, .catalog-hero-card, .trust-card, .flow-card, .hero-badge-tag'
+  );
+  glowElements.forEach(el => {
+    el.classList.add('glow-card');
+    initBorderGlow(el);
+  });
+</script>
+</body>
+</html>
