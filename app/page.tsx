@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 import Head from 'next/head';
 import Script from 'next/script';
 import DotPattern from '../components/ui/dot-pattern-1';
+import { Menu, X } from 'lucide-react';
 import { SpotlightCard } from '../components/ui/spotlight-card';
 import { AdminContactDropdown } from '../components/ui/admin-contact-dropdown';
 import Lenis from '@studio-freight/lenis';
@@ -194,15 +195,7 @@ export default function Home() {
       }, { passive: true });
 
             // ── Hamburger ──
-      const hamburger = document.getElementById('hamburger');
-      const mobileMenu = document.getElementById('mobileMenu');
-      if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', () => {
-          mobileMenu.classList.toggle('open');
-        });
-        mobileMenu.querySelectorAll('a').forEach(a => {
-          a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-        });
+      );
       }
 
       // ── Filter buttons ──
@@ -305,40 +298,50 @@ export default function Home() {
 
 {/* Robot moved to hero section */}
 
+
 {/* ── NAVIGATION ── */}
-<nav id="navbar">
-  <a className="nav-logo" href="#">
-    <img src="/logo.jpg" alt="Farid Shop Game" style={{ width: "32px", height: "32px", borderRadius: "12px", objectFit: "cover", flexShrink: 0, boxShadow: "0 0 16px rgba(79,142,247,0.4)" }} />
-    <span>Farid Shop <em>Game</em></span>
+<nav className="fixed top-0 left-0 w-full z-50 bg-[#060910]/80 backdrop-blur-md border-b border-white/5 h-16 flex items-center justify-between px-4 md:px-8">
+  <a className="nav-logo flex items-center gap-2" href="#">
+    <img src="/logo.jpg" alt="Farid Shop Game" className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-cover flex-shrink-0 shadow-[0_0_16px_rgba(79,142,247,0.4)]" />
+    <span className="text-white font-bold text-sm md:text-base hidden sm:block">Farid Shop <em className="text-[#4F8EF7] not-italic">Game</em></span>
   </a>
 
-  <ul className="nav-links">
-    <li><a href="#komunitas" className="active">Komunitas</a></li>
-    <li><a href="#services">Layanan</a></li>
-    <li><a href="#trust">Keamanan</a></li>
-    <li><a href="#flow">Cara Kerja</a></li>
-    <li><a href="#contact">Kontak</a></li>
+  {/* Desktop Links */}
+  <ul className="hidden md:flex items-center gap-6">
+    <li><a href="#komunitas" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Komunitas</a></li>
+    <li><a href="#services" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Layanan</a></li>
+    <li><a href="#trust" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Keamanan</a></li>
+    <li><a href="#flow" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Cara Kerja</a></li>
+    <li><a href="#contact" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Kontak</a></li>
   </ul>
 
-  <div className="nav-cta">
-    <a href="#komunitas" className="btn-ghost">Gabung Komunitas</a>
-    <a href="https://wa.me/6287814897713" className="btn-primary !bg-[#4F8EF7] hover:!bg-[#3B82F6] !shadow-[0_0_15px_rgba(79,142,247,0.4)]">Chat Admin</a>
+  {/* Desktop CTA */}
+  <div className="hidden md:flex items-center gap-4">
+    <a href="#komunitas" className="btn-ghost text-sm">Gabung Komunitas</a>
+    <a href="https://wa.me/6287814897713" className="btn-primary !bg-[#4F8EF7] hover:!bg-[#3B82F6] !shadow-[0_0_15px_rgba(79,142,247,0.4)] text-sm px-5 rounded-full">Chat Admin</a>
   </div>
 
-  <button className="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
+  {/* Mobile Hamburger */}
+  <button 
+    className="md:hidden flex items-center justify-center p-2 text-white" 
+    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+    aria-label="Menu"
+  >
+    {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
   </button>
 </nav>
 
-{/* Mobile menu */}
-<div className="mobile-menu" id="mobileMenu">
-  <a href="#komunitas">Komunitas</a>
-  <a href="#services">Layanan</a>
-  <a href="#trust">Keamanan</a>
-  <a href="#flow">Cara Kerja</a>
-  <a href="#contact">Kontak</a>
-  
-</div>
+{/* Mobile Menu Dropdown */}
+{isMobileMenuOpen && (
+  <div className="fixed top-16 left-0 w-full bg-[#060910]/98 backdrop-blur-xl border-b border-white/5 flex flex-col p-4 gap-2 z-40 md:hidden shadow-2xl">
+    <a href="#komunitas" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">Komunitas</a>
+    <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">Layanan</a>
+    <a href="#trust" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">Keamanan</a>
+    <a href="#flow" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">Cara Kerja</a>
+    <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-medium text-white hover:bg-white/5 rounded-lg transition-colors">Kontak</a>
+  </div>
+)}
+
 
 {/* ── HERO ── */}
 <main className="snap-container relative z-0 w-full bg-[#000000]" ref={containerRef as React.RefObject<HTMLDivElement>}>
@@ -354,7 +357,7 @@ export default function Home() {
         Terpercaya &amp; Bergaransi
       </div>
   
-      <h1 className="gsap-hero-up" style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 800, letterSpacing: '2px', lineHeight: '1.1', fontSize: 'clamp(28px, 6vw, 64px)', textTransform: 'uppercase', textAlign: 'left' }}>
+      <h1 className="gsap-hero-up text-3xl md:text-5xl lg:text-6xl font-black leading-tight" style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 800, letterSpacing: '2px', lineHeight: '1.1', , textTransform: 'uppercase', textAlign: 'left' }}>
         <span className="text-[#4F8EF7] inline-block">FARID SHOP GAME</span><br/>
         <span className="text-white inline-block mt-1">COMMUNITY STORE</span>
       </h1>
@@ -374,7 +377,7 @@ export default function Home() {
 <div className="hidden stats-bar lg:absolute lg:top-[55%] lg:left-[2%] xl:left-[5%] lg:-translate-y-1/2 z-30 lg:w-[500px]">
   <div className="w-full px-4 mt-6 lg:mt-0">
     <GlowCard className="w-full !p-[1px]">
-      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-0 text-center bg-[#0d1326]/95 rounded-[14px]">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 text-center bg-[#0d1326]/95 rounded-[14px]">
         <div className="flex flex-col items-center justify-center p-2 py-4 border-b border-r border-slate-800/50 md:border-b-0">
           <div className="font-orbitron text-xl font-bold text-white mb-1">500<span className="text-[#0EA5E9]">+</span></div>
           <div className="text-[10px] text-slate-200 font-inter tracking-wide font-medium whitespace-nowrap">Transaksi Sukses</div>
@@ -474,7 +477,7 @@ export default function Home() {
         <span className="text-2xl md:text-3xl drop-shadow-md">👥</span>
         <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-sky-400 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(56,189,248,0.5)]">Grup Jual Beli</span>
       </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 w-full">
         {[
           { name: "Grup 1", url: "https://chat.whatsapp.com/Ih0JMO3tHUiLXADlfWebUY?mode=gi_t" },
           { name: "Grup 2", url: "https://chat.whatsapp.com/FcUdaACZ9c6BGCyPq3bm0e?mode=gi_t" },
@@ -788,7 +791,7 @@ export default function Home() {
       <h2 className="text-center font-orbitron uppercase text-3xl lg:text-4xl font-black text-white mb-10">Keamanan & Kepercayaan<br/>adalah Prioritas Utama</h2>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full">
       {/* TRUST 1 */}
       <div className="group animate-floating relative overflow-hidden rounded-[24px] bg-[#0d1320] ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_30px_-10px_rgba(0,0,0,0.5),0_0_20px_rgba(16,185,129,0.2)]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
@@ -911,7 +914,7 @@ export default function Home() {
       {/* 1. TRUST BADGES (TOP SECTION) */}
       <div className="flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-16 relative z-10 w-full">
         <div className="flex items-center gap-4 group/badge hover:-translate-y-1 transition-transform duration-300 cursor-default">
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
+          <div className="w-8 h-8 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300"></div>
             <span className="text-3xl md:text-4xl drop-shadow-md group-hover/badge:scale-110 transition-transform duration-300 relative z-10">🛡️</span>
           </div>
@@ -922,7 +925,7 @@ export default function Home() {
         </div>
 
         <div className="flex items-center gap-4 group/badge hover:-translate-y-1 transition-transform duration-300 cursor-default">
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
+          <div className="w-8 h-8 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300"></div>
             <span className="text-3xl md:text-4xl drop-shadow-md group-hover/badge:scale-110 transition-transform duration-300 relative z-10">⚡</span>
           </div>
@@ -990,23 +993,30 @@ export default function Home() {
 </section>
 
 {/* ── FOOTER ── */}
+
+      {/* ── MOBILE BOTTOM ACTION BAR ── */}
+      <div className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-[#060910]/95 backdrop-blur-xl border-t border-white/10 p-4 flex gap-3 shadow-[0_-10px_40px_rgba(0,0,0,0.8)] pb-6">
+        <a href="#services" className="flex-1 btn-outline !bg-white/5 !border-white/20 !text-white text-sm font-bold flex items-center justify-center rounded-xl min-h-[48px]">Katalog</a>
+        <a href="https://wa.me/6287814897713" className="flex-1 btn-primary !bg-[#4F8EF7] !shadow-[0_0_20px_rgba(79,142,247,0.5)] text-sm font-bold flex items-center justify-center rounded-xl min-h-[48px]">Chat WA Admin</a>
+      </div>
 </main>
 
+
 <footer>
-  <div className="footer-inner">
+  <div className="footer-inner flex-col md:flex-row text-center md:text-left gap-8 md:gap-0 pb-32 md:pb-12">
     <a className="nav-logo" href="#" style={{'textDecoration': 'none'}}>
       <img src="/logo.jpg" alt="Farid Shop Game" style={{ width: "30px", height: "30px", borderRadius: "8px", objectFit: "cover", flexShrink: 0, boxShadow: "0 0 16px rgba(79,142,247,0.4)" }} />
       <span style={{'fontSize': '14px', 'fontWeight': '700', 'color': 'var(--text)'}}>Farid Shop <em style={{'color': '#4F8EF7', 'fontStyle': 'normal'}}>Game</em></span>
     </a>
 
-    <ul className="footer-links">
+    <ul className="footer-links flex-wrap justify-center md:justify-end">
       <li><a href="#">Syarat &amp; Ketentuan</a></li>
       <li><a href="#">Kebijakan Privasi</a></li>
       <li><a href="#">Garansi Akun</a></li>
       <li><a href="https://wa.me/6287814897713">Hubungi Kami</a></li>
     </ul>
 
-    <div className="footer-social">
+    <div className="footer-social justify-center md:justify-end w-full md:w-auto">
       {/* X / Twitter */}
       <a href="#" className="social-btn" aria-label="Twitter">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>

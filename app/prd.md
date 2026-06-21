@@ -1,38 +1,45 @@
-📄 PRD: Mobile UI/UX Polish & Responsiveness
+📄 PRD Revisi: Strict Mobile Scaling & Proportions
 
-1. Objektif Proyek
-   Mobile-First Precision: Memperbaiki proporsi font, ikon, dan shape (bentuk/kartu) yang kebesaran atau tumpang tindih di layar HP.
+1. Analisis Akar Masalah (Root Cause)
+   Masalah Sebelumnya: Penggunaan clamp() atau utilitas bawaan yang gagal mendeteksi batas layar ponsel, menyebabkan teks dan shape over-scaling (kebesaran).
 
-Navigasi Intuitif: Merombak Top Bar agar tidak penuh sesak, dan merapikan bagian bawah (Footer & Bottom Action Bar).
+Solusi: Kita tinggalkan kalkulasi otomatis yang berisiko. Kita gunakan pendekatan Mobile-First absolut. Semua class dasar (tanpa awalan) wajib berukuran kecil, dan ukuran besar hanya boleh aktif jika layar di atas 768px (menggunakan awalan md:).
 
-Touch-Friendly: Memastikan area yang bisa diklik (touch target) sesuai standar kenyamanan jempol.
+2. Aturan Ketat Tipografi (Font Scaling)
+   Tidak ada lagi teks raksasa di layar HP.
 
-2. Standarisasi Skala (Icons, Shapes, Fonts)
-   Typography (Font): Teks yang terlihat pas di PC sering kali raksasa di HP. Kita akan menyesuaikan fungsi clamp() atau memberikan spesifikasi ukuran khusus mobile (misal: judul utama di HP maksimal text-3xl atau text-4xl, deskripsi text-sm).
+Hero Headline Utama: Wajib text-3xl (30px) atau maksimal text-4xl (36px). Baru membesar menjadi md:text-6xl di desktop.
 
-Icons: Menyeragamkan ukuran ikon di dalam Bento Cards agar tidak memakan tempat. Di HP, ikon cukup berukuran w-6 h-6 atau w-8 h-8.
+Judul Section (Keamanan, Layanan): Wajib text-2xl (24px) font-bold. Desktop: md:text-4xl.
 
-Shapes / Kartu Layanan: \* Mengurangi padding (jarak dalam) kartu dari p-8 menjadi p-4 di layar mobile.
+Teks Body/Deskripsi: Wajib text-sm (14px) agar keterbacaan nyaman tanpa menghabiskan ruang. Desktop: md:text-base.
 
-Merubah layout grid yang tadinya 4 kolom menyamping menjadi 1 atau maksimal 2 kolom di HP agar tidak gepeng.
+Line Height (Jarak Antar Baris): Gunakan leading-tight untuk judul agar tidak memakan ruang vertikal terlalu banyak.
 
-3. Revamp Top Bar Navigation (Navigasi Atas)
-   Masalah Saat Ini: Terlalu banyak teks menu (Komunitas, Layanan, Keamanan) yang dijejalkan di layar kecil sehingga desain pecah.
+3. Pengecilan Shape & Bento Grid (Kartu Layanan)
+   Elemen box tidak boleh mendominasi layar.
 
-Solusi Mobile: \* Sembunyikan teks menu (Layanan, Cara Kerja, dll) di layar HP.
+Padding Kartu: Kurangi drastis dari p-8 menjadi p-4 (sekitar 16px) untuk versi mobile. Desktop baru md:p-8.
 
-Ganti dengan ikon Hamburger Menu (ikon 3 garis) di pojok kanan.
+Ukuran Ikon: Wajib di-hardcode menjadi w-6 h-6 atau maksimal w-8 h-8 di dalam kartu.
 
-Biarkan Logo "Farid Shop Game" tetap di kiri.
+Grid Layout: Wajib grid-cols-1 (1 kolom tersusun ke bawah) atau maksimal grid-cols-2 (jika isi kartunya hanya ikon dan teks sangat pendek). Jangan pernah memaksakan 3-4 kolom di HP.
 
-Pastikan Top Bar memiliki efek glassmorphism tipis dan menempel di atas (sticky) saat di-scroll.
+4. Perampingan Top Bar & Bottom Bar
+   Area navigasi harus menghemat ruang layar (Screen Real Estate).
 
-4. Revamp Bagian Bawah & Footer
-   Floating Bottom Action Bar (Kunci Konversi): Tambahkan bilah menu yang menempel statis di dasar layar HP. Isinya cukup 2 tombol utama: tombol "Katalog" (warna sekunder) dan "Chat WA Admin" (warna primer/glowing). Ini memastikan tombol beli selalu ada di dekat jempol pembeli.
+Top Bar (Header):
 
-Footer Stacking: Ubah susunan teks footer (hak cipta, link sosial media) yang menyamping menjadi tersusun ke bawah (stacking vertikal) dan pusatkan teksnya (text-center).
+Tinggi maksimal h-16 (64px).
 
-5. Lain-lain (Spacing & Touch Targets)
-   Margin & Gap: Kurangi jarak antar section (gap dan margin) di versi mobile agar pengunjung tidak perlu melakukan scroll terlalu panjang untuk melihat konten berikutnya.
+Sembunyikan semua teks menu (hidden md:flex).
 
-Standard Touch Target: Semua tombol, ikon media sosial, atau link yang bisa diklik wajib memiliki tinggi minimal 48px (aturan baku UI/UX) agar tidak salah pencet.
+Hanya tampilkan Logo (ukurannya dikecilkan jadi h-8) dan ikon Hamburger Menu (w-6 h-6).
+
+Bottom Action Bar (Mobile Only):
+
+Wajib menempel di bawah (fixed bottom-0).
+
+Tinggi proporsional, gunakan padding p-3.
+
+Tombol "Chat Admin" di dalamnya harus penuh kiri-kanan (w-full) dengan tinggi ideal sentuhan jempol h-12.
