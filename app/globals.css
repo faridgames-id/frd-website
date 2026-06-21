@@ -257,7 +257,7 @@ body {
     @keyframes float1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     @keyframes float2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
     .float-label { font-size: 10px; color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-    .float-val { font-size: 16px; font-weight: 700; color: var(--text); }
+    .float-val { font-weight: 700; color: var(--text); }
     .float-val .green { color: #34D399; }
     .float-val .gold { color: var(--gold); }
 
@@ -903,7 +903,7 @@ body {
     }
 
     .hero-sub {
-      font-size: 16px; line-height: 1.7;
+      line-height: 1.7;
       color: #E2E8F0; margin-bottom: 32px;
       max-width: 640px;
     }

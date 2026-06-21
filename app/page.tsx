@@ -362,7 +362,7 @@ export default function Home() {
         <span className="text-white inline-block mt-1">COMMUNITY STORE</span>
       </h1>
   
-      <p className="hero-sub mt-4 max-w-[500px]">
+      <p className="hero-sub mt-4 max-w-[500px] text-sm md:text-base">
         <TypewriterText text="Pusat jual beli akun game terpercaya. Free Fire, Mobile Legends, dan lainnya - spek sultan, harga jujur, garansi anti hackback." delay={1200} />
       </p>
   
@@ -468,7 +468,7 @@ export default function Home() {
     <div className="mb-12">
       <div className="eyebrow text-center mb-3 text-[13px] md:text-[14px] tracking-[0.2em]">Komunitas Jual Beli Akun</div>
       <h2 className="text-center font-orbitron uppercase text-[32px] md:text-[40px] lg:text-[46px] font-black text-white mb-6 leading-tight">Bergabung dengan<br/>Komunitas Kami</h2>
-      <p className="font-inter text-[15px] md:text-base text-slate-300 leading-relaxed text-center mx-auto max-w-2xl">Temukan berbagai grup, saluran, dan sosial media resmi Farid Shop Game untuk update stock, transaksi aman, dan info terbaru.</p>
+      <p className="font-inter text-sm md:text-base text-slate-300 leading-relaxed text-center mx-auto max-w-2xl">Temukan berbagai grup, saluran, dan sosial media resmi Farid Shop Game untuk update stock, transaksi aman, dan info terbaru.</p>
     </div>
 
     {/* GRUP JUAL BELI */}
@@ -919,7 +919,7 @@ export default function Home() {
             <span className="text-3xl md:text-4xl drop-shadow-md group-hover/badge:scale-110 transition-transform duration-300 relative z-10">🛡️</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-white font-black text-base md:text-lg uppercase tracking-widest drop-shadow-sm group-hover/badge:text-blue-300 transition-colors">Aman 100%</span>
+            <span className="text-white font-black text-sm md:text-base uppercase tracking-widest drop-shadow-sm group-hover/badge:text-blue-300 transition-colors">Aman 100%</span>
             <span className="text-slate-400 text-xs md:text-sm mt-1 font-medium group-hover/badge:text-slate-300 transition-colors">Garansi Anti Hackback</span>
           </div>
         </div>
@@ -930,7 +930,7 @@ export default function Home() {
             <span className="text-3xl md:text-4xl drop-shadow-md group-hover/badge:scale-110 transition-transform duration-300 relative z-10">⚡</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-white font-black text-base md:text-lg uppercase tracking-widest drop-shadow-sm group-hover/badge:text-blue-300 transition-colors">Proses Kilat</span>
+            <span className="text-white font-black text-sm md:text-base uppercase tracking-widest drop-shadow-sm group-hover/badge:text-blue-300 transition-colors">Proses Kilat</span>
             <span className="text-slate-400 text-xs md:text-sm mt-1 font-medium group-hover/badge:text-slate-300 transition-colors">1-5 Menit Langsung Cair</span>
           </div>
         </div>
