@@ -300,8 +300,8 @@ export default function Home() {
 {/* ── NAVIGATION ── */}
 <nav className="fixed top-0 left-0 w-full z-50 bg-[#060910]/80 backdrop-blur-md border-b border-white/5 h-16 flex items-center justify-between px-4 md:px-8">
   <a className="nav-logo flex items-center gap-2" href="#">
-    <img src="/logo.jpg" alt="Farid Shop Game" className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-cover flex-shrink-0 shadow-[0_0_16px_rgba(79,142,247,0.4)]" />
-    <span className="text-white font-bold text-sm md:text-base hidden sm:block">Farid Shop <em className="text-[#4F8EF7] not-italic">Game</em></span>
+    <img src="/logo.jpg" alt="Farid Shop Game" className="w-8 h-8 md:w-10 md:h-10 rounded-md object-cover flex-shrink-0 shadow-[0_0_16px_rgba(79,142,247,0.4)]" />
+    <span className="text-white font-bold text-sm md:text-base block">Farid Shop <em className="text-[#4F8EF7] not-italic">Game</em></span>
   </a>
 
   {/* Desktop Links */}
