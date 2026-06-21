@@ -1142,6 +1142,6 @@ a[href*="spline.design"] {
 @media (max-width: 860px) {
   .nav-links, .nav-cta { display: none !important; }
   .hamburger { display: flex !important; }
-  .nav-logo span { display: none !important; }
+  
   nav { padding: 0 16px !important; }
 }
