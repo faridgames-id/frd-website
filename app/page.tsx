@@ -1,3 +1,11 @@
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'spline-viewer': any;
+    }
+  }
+}
+
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
@@ -311,7 +319,7 @@ export default function Home() {
       );
       glowElements.forEach(el => {
         el.classList.add('glow-card');
-        initBorderGlow(el);
+        initBorderGlow(el as HTMLElement);
       });
     
         }, []);
@@ -383,7 +391,8 @@ export default function Home() {
   {/* ── GIANT ROBOT 3D BACKGROUND (SLIDE 1 ONLY) ── */}
   <div style={{'display': 'block', 'position': 'absolute', 'top': '0', 'left': '0', 'width': '100%', 'height': '100%', 'zIndex': '0', 'pointerEvents': 'none', 'overflow': 'hidden'}}>
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.3/build/spline-viewer.js"></script>
-    <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" events-target="global" style={{'width': '100%', 'height': '100%', 'display': 'block'}}></spline-viewer>
+    {/* @ts-ignore */}
+          <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" events-target="global" style={{'width': '100%', 'height': '100%', 'display': 'block'}}></spline-viewer>
   </div>
   <div className="absolute inset-0 z-0 pointer-events-none will-change-transform"><Particles /></div>
   <div className="gsap-bg gsap-bg-parallax absolute -z-10 w-full pointer-events-none will-change-transform pointer-events-none will-change-transform h-[200%] -top-[50%] left-0 pointer-events-none bg-[linear-gradient(to_right,#4f8ef710_1px,transparent_1px),linear-gradient(to_bottom,#4f8ef710_1px,transparent_1px)] bg-[size:48px_48px]"></div>

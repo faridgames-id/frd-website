@@ -26,7 +26,7 @@ export function SpotlightCard({
   const yTo = useRef<gsap.QuickToFunc | null>(null);
   const innerXTo = useRef<gsap.QuickToFunc | null>(null);
   const innerYTo = useRef<gsap.QuickToFunc | null>(null);
-  const originSetter = useRef<gsap.QuickSetterFunc | null>(null);
+  const originSetter = useRef<Function | null>(null);
   const glowXTo = useRef<gsap.QuickToFunc | null>(null);
   const glowYTo = useRef<gsap.QuickToFunc | null>(null);
 
