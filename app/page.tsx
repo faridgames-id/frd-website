@@ -354,7 +354,7 @@ export default function Home() {
         Terpercaya &amp; Bergaransi
       </div>
   
-      <h1 className="gsap-hero-up" style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 800, letterSpacing: '2px', lineHeight: '1.1', fontSize: 'clamp(36px, 5vw, 64px)', textTransform: 'uppercase', textAlign: 'left' }}>
+      <h1 className="gsap-hero-up" style={{ fontFamily: 'var(--font-space-grotesk), sans-serif', fontWeight: 800, letterSpacing: '2px', lineHeight: '1.1', fontSize: 'clamp(28px, 6vw, 64px)', textTransform: 'uppercase', textAlign: 'left' }}>
         <span className="text-[#4F8EF7] inline-block">FARID SHOP GAME</span><br/>
         <span className="text-white inline-block mt-1">COMMUNITY STORE</span>
       </h1>
@@ -911,7 +911,7 @@ export default function Home() {
       {/* 1. TRUST BADGES (TOP SECTION) */}
       <div className="flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-16 relative z-10 w-full">
         <div className="flex items-center gap-4 group/badge hover:-translate-y-1 transition-transform duration-300 cursor-default">
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300"></div>
             <span className="text-3xl md:text-4xl drop-shadow-md group-hover/badge:scale-110 transition-transform duration-300 relative z-10">🛡️</span>
           </div>
@@ -922,7 +922,7 @@ export default function Home() {
         </div>
 
         <div className="flex items-center gap-4 group/badge hover:-translate-y-1 transition-transform duration-300 cursor-default">
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-[20px] bg-gradient-to-b from-[#3B82F6] to-[#1D4ED8] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_8px_16px_rgba(0,0,0,0.4)] ring-1 ring-blue-400/50 group-hover/badge:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300"></div>
             <span className="text-3xl md:text-4xl drop-shadow-md group-hover/badge:scale-110 transition-transform duration-300 relative z-10">⚡</span>
           </div>
@@ -945,36 +945,36 @@ export default function Home() {
 
         <div className="grid grid-cols-2 sm:flex sm:flex-row justify-center gap-3 md:gap-4">
            {/* DANA */}
-           <div className="w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] bg-gradient-to-b from-[#118EEA] to-[#0A66C2] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
+           <div className="w-[52px] h-[52px] md:w-[72px] md:h-[72px] rounded-[12px] md:rounded-[20px] bg-gradient-to-b from-[#118EEA] to-[#0A66C2] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-             <div className="w-7 h-7 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm relative z-10">
+             <div className="w-5 h-5 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm relative z-10">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#118EEA]" fill="currentColor"><path d="M20.5 4h-17C2.12 4 1 5.12 1 6.5v11C1 18.88 2.12 20 3.5 20h17c1.38 0 2.5-1.12 2.5-2.5v-11C23 5.12 21.88 4 20.5 4zm-17 2h17c.28 0 .5.22.5.5v1.27c-1.46.66-2.5 2.1-2.5 3.73s1.04 3.07 2.5 3.73v1.27c0 .28-.22.5-.5.5h-17c-.28 0-.5-.22-.5-.5v-11c0-.28.22-.5.5-.5z"/></svg>
              </div>
              <span className="text-white font-bold text-[9px] md:text-[10px] tracking-wide drop-shadow-sm relative z-10">DANA</span>
            </div>
 
            {/* SEA Bank */}
-           <div className="w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] bg-gradient-to-b from-[#8B5CF6] to-[#6D28D9] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
+           <div className="w-[52px] h-[52px] md:w-[72px] md:h-[72px] rounded-[12px] md:rounded-[20px] bg-gradient-to-b from-[#8B5CF6] to-[#6D28D9] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-             <div className="w-7 h-7 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm relative z-10">
+             <div className="w-5 h-5 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm relative z-10">
                <span className="text-[#8B5CF6] font-black text-sm md:text-base">S</span>
              </div>
              <span className="text-white font-bold text-[9px] md:text-[10px] tracking-wide drop-shadow-sm relative z-10">SEA Bank</span>
            </div>
 
            {/* GoPay */}
-           <div className="w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] bg-gradient-to-b from-[#00AED6] to-[#0096B9] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
+           <div className="w-[52px] h-[52px] md:w-[72px] md:h-[72px] rounded-[12px] md:rounded-[20px] bg-gradient-to-b from-[#00AED6] to-[#0096B9] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-             <div className="w-7 h-7 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm relative z-10">
+             <div className="w-5 h-5 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm relative z-10">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#00AED6]" fill="currentColor"><path d="M19 7H5C3.89 7 3 7.89 3 9v8c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2V9c0-1.11-.89-2-2-2zm-3 7h-2v-2h2v2z"/></svg>
              </div>
              <span className="text-white font-bold text-[9px] md:text-[10px] tracking-wide drop-shadow-sm relative z-10">gopay</span>
            </div>
 
            {/* QRIS */}
-           <div className="w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-[16px] md:rounded-[20px] bg-gradient-to-b from-[#EF4444] to-[#B91C1C] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
+           <div className="w-[52px] h-[52px] md:w-[72px] md:h-[72px] rounded-[12px] md:rounded-[20px] bg-gradient-to-b from-[#EF4444] to-[#B91C1C] shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.2),0_6px_12px_rgba(0,0,0,0.4)] ring-1 ring-white/20 hover:-translate-y-1 hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-2px_4px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-pointer group/icon relative overflow-hidden flex-shrink-0 flex flex-col items-center justify-center">
              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-             <div className="w-7 h-7 md:w-8 md:h-8 bg-white rounded-xl flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm p-1 relative z-10">
+             <div className="w-5 h-5 md:w-8 md:h-8 bg-white rounded-xl flex items-center justify-center mb-1 group-hover/icon:scale-105 transition-transform duration-300 shadow-sm p-1 relative z-10">
                <div className="w-full h-full border-[1.5px] border-[#EF4444] grid grid-cols-2 gap-[1px] p-[1px]">
                  <div className="bg-[#EF4444]"></div><div className="bg-[#EF4444]"></div>
                  <div className="bg-[#EF4444]"></div><div className="border border-[#EF4444]"></div>

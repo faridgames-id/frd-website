@@ -61,32 +61,7 @@ body {
   min-height: 100vh;
 }
 
-    /* ── Global ambient ── */
-    .ambient {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background: rgba(6, 9, 16, 0.4); /* Simplified overlay for performance */
-    }
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 5px; background: var(--surface-1); }
-    ::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 99px; }
-
-    /* ── Selection ── */
-    ::selection { background: rgba(79,142,247,0.3); color: #fff; }
-
-    /* ───────────── NAV ───────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    }
-    .nav-links a:hover { color: var(--text); background: var(--surface-2); }
-    .nav-links a.active { color: var(--text); }
-
-    .nav-cta {
-      display: flex; align-items: center; gap: 8px;
-    }
-    .btn-ghost {
-      padding: 7px 16px;
-}
+    
 
     /* ── Global ambient ── */
     .ambient {
