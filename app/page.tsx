@@ -172,28 +172,7 @@ export default function Home() {
         }
       }
     });
-    // PPTX Snap Style
-    ScrollTrigger.create({
-      trigger: containerRef.current,
-      start: "top top",
-      end: "bottom bottom",
-      snap: {
-        snapTo: (progress) => {
-          let panels = gsap.utils.toArray('.slide-section');
-          let maxScroll = ScrollTrigger.maxScroll(window);
-          if (maxScroll === 0) return progress;
-          let offsets = panels.map(p => (p as HTMLElement).offsetTop / maxScroll);
-          
-          let closest = offsets.reduce((prev, curr) => {
-            return (Math.abs(curr - progress) < Math.abs(prev - progress) ? curr : prev);
-          });
-          return closest;
-        },
-        duration: { min: 0.4, max: 0.8 },
-        delay: 0.1,
-        ease: "power2.out"
-      }
-    });
+
   }, { scope: containerRef });
 
   useEffect(() => {
