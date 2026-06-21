@@ -297,24 +297,8 @@ export default function Home() {
 
   return (
     <>
-      <Script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.3/build/spline-viewer.js" strategy="lazyOnload" />
-      <Script id="remove-spline-logo" strategy="afterInteractive">
-        {`
-          setInterval(() => {
-            const viewers = document.querySelectorAll('spline-viewer');
-            viewers.forEach(viewer => {
-              if (viewer && viewer.shadowRoot) {
-                const logo = viewer.shadowRoot.querySelector('#logo');
-                if (logo) logo.style.display = 'none';
-                
-                // Also hide by tag name just in case
-                const link = viewer.shadowRoot.querySelector('a');
-                if (link && link.href.includes('spline.design')) link.style.display = 'none';
-              }
-            });
-          }, 1000);
-        `}
-      </Script>
+      
+      
 
 {/* Ambient background */}
 <div className="ambient" aria-hidden="true"></div>
@@ -359,12 +343,7 @@ export default function Home() {
 {/* ── HERO ── */}
 <main className="snap-container relative z-0 w-full bg-[#000000]" ref={containerRef as React.RefObject<HTMLDivElement>}>
 <section className="hero slide-section flex-col min-h-[100dvh] w-full relative overflow-hidden flex justify-center items-center snap-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0022ff]/50 via-[#000a55]/25 to-transparent">
-  {/* ── GIANT ROBOT 3D BACKGROUND (SLIDE 1 ONLY) ── */}
-  <div style={{'display': 'block', 'position': 'absolute', 'top': '0', 'left': '0', 'width': '100%', 'height': '100%', 'zIndex': '0', 'pointerEvents': 'none', 'overflow': 'hidden'}}>
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.3/build/spline-viewer.js"></script>
-    {/* @ts-ignore */}
-          <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" events-target="global" style={{'width': '100%', 'height': '100%', 'display': 'block'}}></spline-viewer>
-  </div>
+  
   <div className="absolute inset-0 z-0 pointer-events-none will-change-transform"><Particles /></div>
   <div className="gsap-bg gsap-bg-parallax absolute -z-10 w-full pointer-events-none will-change-transform pointer-events-none will-change-transform h-[200%] -top-[50%] left-0 pointer-events-none bg-[linear-gradient(to_right,#4f8ef710_1px,transparent_1px),linear-gradient(to_bottom,#4f8ef710_1px,transparent_1px)] bg-[size:48px_48px]"></div>
   <div className="w-full h-full absolute inset-0 z-0 pointer-events-none will-change-transform bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400/10 via-transparent to-transparent"></div>
