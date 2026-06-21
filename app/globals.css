@@ -750,8 +750,8 @@ body {
     }
     .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); }
     .mobile-menu a {
-      padding: 12px 14px;
-      font-size: 15px; font-weight: 500; color: #E2E8F0;
+      padding: 8px 12px;
+      font-size: 13px; font-weight: 500; color: #E2E8F0;
       text-decoration: none; border-radius: var(--radius-sm);
       transition: background var(--transition), color var(--transition);
     }
@@ -764,6 +764,8 @@ body {
       .trust-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 860px) {
+  .nav-logo span { font-size: 13px !important; }
+  nav { height: 56px !important; top: 12px !important; }
       .hero { flex-direction: column; padding: 100px 24px 60px; text-align: center; }
       .hero-content { max-width: 100%; align-items: center; }
       .hero-sub { margin-left: auto; margin-right: auto; }
@@ -1065,6 +1067,7 @@ body {
       font-family: var(--font-orbitron), 'Orbitron', sans-serif;
     }
     .nav-logo span {
+        white-space: nowrap;
       margin-left: 6px;
       font-size: 15px; font-weight: 800; color: var(--text);
       letter-spacing: 0.5px;
@@ -1140,6 +1143,8 @@ a[href*="spline.design"] {
 
 /* --- MOBILE NAV FIXES --- */
 @media (max-width: 860px) {
+  .nav-logo span { font-size: 13px !important; }
+  nav { height: 56px !important; top: 12px !important; }
   .nav-links, .nav-cta { display: none !important; }
   .hamburger { display: flex !important; }
   
@@ -1147,12 +1152,15 @@ a[href*="spline.design"] {
 }
 
 @media (max-width: 860px) {
+  .nav-logo span { font-size: 13px !important; }
+  nav { height: 56px !important; top: 12px !important; }
   nav { 
     height: 54px !important; 
     border-radius: 20px !important;
   }
   .nav-logo img { width: 26px !important; height: 26px !important; border-radius: 8px !important; }
-  .nav-logo span { font-size: 12px !important; margin-left: 6px !important; letter-spacing: 0px !important; }
+  .nav-logo span {
+        white-space: nowrap; font-size: 12px !important; margin-left: 6px !important; letter-spacing: 0px !important; }
   .hamburger { padding: 4px !important; }
   .hamburger span { width: 18px !important; height: 1.5px !important; }
 }
