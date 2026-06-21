@@ -1004,7 +1004,7 @@ export default function Home() {
 
 <footer>
   <div className="footer-inner flex-col md:flex-row text-center md:text-left gap-8 md:gap-0 pb-32 md:pb-12">
-    <a className="nav-logo" href="#" style={{'textDecoration': 'none'}}>
+    <a className="nav-logo justify-center md:justify-start w-full md:w-auto" href="#" style={{textDecoration: "none"}}>
       <img src="/logo.jpg" alt="Farid Shop Game" style={{ width: "30px", height: "30px", borderRadius: "8px", objectFit: "cover", flexShrink: 0, boxShadow: "0 0 16px rgba(79,142,247,0.4)" }} />
       <span style={{'fontSize': '14px', 'fontWeight': '700', 'color': 'var(--text)'}}>Farid Shop <em style={{'color': '#4F8EF7', 'fontStyle': 'normal'}}>Game</em></span>
     </a>
