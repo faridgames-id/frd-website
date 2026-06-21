@@ -1164,3 +1164,42 @@ a[href*="spline.design"] {
   .hamburger { padding: 4px !important; }
   .hamburger span { width: 18px !important; height: 1.5px !important; }
 }
+
+/* --- MOBILE LAYOUT REFINEMENTS --- */
+@media (max-width: 860px) {
+  /* Footer */
+  .footer-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 20px !important;
+    padding: 24px 16px 80px !important; /* Extra bottom padding for floating bar */
+  }
+  .footer-links {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+    padding-bottom: 80px !important;
+  }
+  
+  /* Touch targets */
+  .btn-primary, .btn-outline, .btn-ghost, .social-btn, .mobile-menu a {
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Bento Grid Icons Scaling */
+  .services-grid .w-16, .catalog-list .w-16 { width: 40px !important; height: 40px !important; }
+  .services-grid .h-16, .catalog-list .h-16 { height: 40px !important; }
+  .services-grid .text-4xl, .catalog-list .text-4xl { font-size: 24px !important; }
+  
+  /* Feature Grid Layout */
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

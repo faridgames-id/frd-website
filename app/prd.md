@@ -1,56 +1,38 @@
-📄 Product Requirements Document (PRD): HD Interactive Layout Revamp
+📄 PRD: Mobile UI/UX Polish & Responsiveness
 
 1. Objektif Proyek
-   Fluid Responsiveness: Memastikan setiap elemen pas (fit-to-screen) di semua ukuran (Mobile, Tablet, Desktop monitor besar) tanpa mengubah model komponen dasar.
+   Mobile-First Precision: Memperbaiki proporsi font, ikon, dan shape (bentuk/kartu) yang kebesaran atau tumpang tindih di layar HP.
 
-Premium Motion: Menerapkan transisi geser vertikal bergaya PPTX yang smooth menggunakan GSAP (ScrollSmoother & ScrollTrigger).
+Navigasi Intuitif: Merombak Top Bar agar tidak penuh sesak, dan merapikan bagian bawah (Footer & Bottom Action Bar).
 
-HD Visuals: Optimasi resolusi tinggi dan penggunaan vector assets agar web terlihat sangat tajam di layar Retina/OLED.
+Touch-Friendly: Memastikan area yang bisa diklik (touch target) sesuai standar kenyamanan jempol.
 
-Thematic Sections: Memberikan identitas visual eksklusif berupa gradasi hitam bermotif pada setiap slide.
+2. Standarisasi Skala (Icons, Shapes, Fonts)
+   Typography (Font): Teks yang terlihat pas di PC sering kali raksasa di HP. Kita akan menyesuaikan fungsi clamp() atau memberikan spesifikasi ukuran khusus mobile (misal: judul utama di HP maksimal text-3xl atau text-4xl, deskripsi text-sm).
 
-2. Spesifikasi Tema Visual (Gradasi Hitam & Motif Unik)
-   Setiap section akan berfungsi sebagai slide layar penuh (100vh). Berikut adalah rancangan tema visual agar tidak membosankan:
+Icons: Menyeragamkan ukuran ikon di dalam Bento Cards agar tidak memakan tempat. Di HP, ikon cukup berukuran w-6 h-6 atau w-8 h-8.
 
-Slide 1: Hero Section (Kesan Pertama & Hook)
+Shapes / Kartu Layanan: \* Mengurangi padding (jarak dalam) kartu dari p-8 menjadi p-4 di layar mobile.
 
-Warna Latar: Gradasi Pure Black (#000000) ke Deep Charcoal (#1A1A1A).
+Merubah layout grid yang tadinya 4 kolom menyamping menjadi 1 atau maksimal 2 kolom di HP agar tidak gepeng.
 
-Motif: Subtle Glowing Hexagon Mesh (menggambarkan struktur, brankas, dan teknologi gaming). Opasitas 3%.
+3. Revamp Top Bar Navigation (Navigasi Atas)
+   Masalah Saat Ini: Terlalu banyak teks menu (Komunitas, Layanan, Keamanan) yang dijejalkan di layar kecil sehingga desain pecah.
 
-Slide 2: Trust Badges & Keamanan
+Solusi Mobile: \* Sembunyikan teks menu (Layanan, Cara Kerja, dll) di layar HP.
 
-Warna Latar: Gradasi Midnight Black (#0B0C10) ke Dark Obsidian (#1F2833).
+Ganti dengan ikon Hamburger Menu (ikon 3 garis) di pojok kanan.
 
-Motif: Faded Circuit Board (memberikan kesan keamanan siber dan perlindungan sistem). Opasitas 2%.
+Biarkan Logo "Farid Shop Game" tetap di kiri.
 
-Slide 3: Katalog Layanan (Bento Grid)
+Pastikan Top Bar memiliki efek glassmorphism tipis dan menempel di atas (sticky) saat di-scroll.
 
-Warna Latar: Gradasi Abyss Black (#050505) ke Dark Sapphire (#000B18).
+4. Revamp Bagian Bawah & Footer
+   Floating Bottom Action Bar (Kunci Konversi): Tambahkan bilah menu yang menempel statis di dasar layar HP. Isinya cukup 2 tombol utama: tombol "Katalog" (warna sekunder) dan "Chat WA Admin" (warna primer/glowing). Ini memastikan tombol beli selalu ada di dekat jempol pembeli.
 
-Motif: Topographic Lines halus (memberikan kesan eksplorasi dunia game dan leveling up). Opasitas 4%.
+Footer Stacking: Ubah susunan teks footer (hak cipta, link sosial media) yang menyamping menjadi tersusun ke bawah (stacking vertikal) dan pusatkan teksnya (text-center).
 
-Slide 4: Cara Kerja & Komunitas
+5. Lain-lain (Spacing & Touch Targets)
+   Margin & Gap: Kurangi jarak antar section (gap dan margin) di versi mobile agar pengunjung tidak perlu melakukan scroll terlalu panjang untuk melihat konten berikutnya.
 
-Warna Latar: Gradasi Matte Black (#121212) ke Eerie Black (#1B1B1B).
-
-Motif: Abstract Digital Noise / Dotted Grid tipis yang elegan agar antarmuka terlihat sangat modern.
-
-3. Eksekusi "8 Pillars of Design" (Fokus Layout & Efek)
-   Kita menerapkan pilar desain ini khusus untuk membungkus komponen yang sudah ada, tanpa merombak isi rumahnya:
-
-Point of View (Sudut Pandang): Menjadikan layar sebagai "kanvas presentasi". Menggunakan teknik snap scrolling, pengguna akan dibawa ke slide berikutnya secara utuh, menjaga fokus pada satu pesan bisnis (misal: hanya fokus pada Katalog, lalu pindah ke Keamanan).
-
-Color (Warna): Penggunaan kanvas gradasi hitam yang kaya (rich black) seperti spesifikasi di atas untuk menciptakan kedalaman 3D (depth).
-
-Typography (Tipografi Fluid): Menggunakan fungsi clamp() pada CSS agar ukuran teks membesar dan mengecil secara otomatis mengikuti resolusi layar, memastikan ketajaman teks (HD) tanpa pernah terpotong.
-
-Hierarchy (Hierarki Spasial): Mempertahankan struktur model data, namun dibungkus dalam kontainer berukuran max-w-7xl dengan padding adaptif agar isi web tidak pernah menabrak tepi layar ponsel dan tetap terpusat di monitor lebar.
-
-Imagery (Aset Visual HD): Menerapkan standar resolusi ganda (@2x). Gambar akan dirender menggunakan WebP berkualitas tinggi, dan ikon wajib menggunakan SVG agar ujungnya tetap tajam meski di-zoom.
-
-Motion (Interaksi & Parallax): Integrasi tingkat lanjut GSAP. Saat berpindah slide, latar belakang bermotif bergerak dengan kecepatan lebih lambat (efek Parallax ala PPTX Premium), sementara konten teks masuk perlahan dengan efek fade-up.
-
-Mobile (Responsivitas Mutlak): Menerapkan unit Dynamic Viewport Height (dvh) pada slide utama agar tinggi halaman selalu akurat dan tidak terhalang oleh bilah navigasi browser mobile seperti Chrome/Safari.
-
-The Invisible Stuff (Fondasi Gaib): Mengaktifkan Hardware Acceleration (will-change: transform) agar animasi transisi GSAP berjalan di atas GPU (60 FPS). Ini memastikan web terasa sangat ringan, mulus, dan tidak membuat ponsel pembeli menjadi panas atau lag.
+Standard Touch Target: Semua tombol, ikon media sosial, atau link yang bisa diklik wajib memiliki tinggi minimal 48px (aturan baku UI/UX) agar tidak salah pencet.
